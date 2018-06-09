@@ -1,5 +1,6 @@
 from openpyxl import load_workbook
-
+from pprint import pprint
+import json
 filepath = '/home/iroan/data/carnum.xlsx'
 
 # 读取sheet名称
@@ -25,13 +26,25 @@ def task_0609(filename):
     wb = load_workbook(filepath)
     sheet = wb['Sheet1']
     province_set = set()
-    for index,i in enumerate(sheet['A']):
+    result_dict = dict()
+
+    for index,item in enumerate(sheet['A']):
         if index == 1:
             continue
-        if i.value != None:
-            province_set.add(i.value)
+        if item.value != None:
+            province_set.add(item.value)
+    for i in province_set:
+        result_dict[i] = set()
 
-    result_dict = dict()
+    for index,item in enumerate(zip(sheet['A'],sheet['C'])):
+        A = item[0].value
+        C = item[1].value
+        if A in result_dict:
+            result_dict[A].add(C)
+    for i in result_dict:
+        result_dict[i] = list(result_dict[i])
+
+    pprint(result_dict)
 
 
 task_0609(filepath)
