@@ -3,9 +3,6 @@ from pprint import pprint
 import json
 filepath = '/home/iroan/data/carnum.xlsx'
 
-# 读取sheet名称
-# print(wb2.sheetnames)
-
 def task_0609(filename):
     '''
     功能：提取出每一行数据中A字段对应的省份在C中出现的字母集合
