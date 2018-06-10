@@ -5,7 +5,7 @@ filepath = '/home/iroan/data/final_new.xlsx'
 
 def task_0609(filename):
     '''
-    功能：提取出每一行数据中M字段对应的汽车品牌在N中出现的汽车集合
+    功能：提取出每一行数据中M列对应的汽车品牌在N列中出现的汽车集合
     :param filename: 处理的文件名
     :return: 一个json格式的数据
         数据形式：
@@ -34,6 +34,8 @@ def task_0609(filename):
             result_dict[A].add(C)
     for i in result_dict:
         result_dict[i] = list(result_dict[i])
+
+
     pprint(result_dict)
 
 if __name__ == '__main__':
